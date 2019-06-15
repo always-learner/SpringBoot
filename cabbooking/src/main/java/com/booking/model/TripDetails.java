@@ -18,7 +18,7 @@ public class TripDetails {
 
     @OneToOne(mappedBy = "tripDetails")
     private Booking booking;
-    
+
     private long endTripReading;
 
     public long getInitialReading() {

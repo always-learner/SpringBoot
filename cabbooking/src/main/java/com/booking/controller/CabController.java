@@ -3,10 +3,7 @@ package com.booking.controller;
 import com.booking.model.Cab;
 import com.booking.service.CabServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,18 +11,24 @@ import java.util.List;
  * Created by sam on 12/6/19.
  */
 @RestController
+@RequestMapping("/cabs")
 public class CabController {
 
     @Autowired
     private CabServiceImpl cabServiceImpl;
 
-    @GetMapping("/cabs")
+    @GetMapping
     public List<Cab> findAllCabs(){
         return cabServiceImpl.findAllCabs();
     }
 
-    @PostMapping("/cabs")
+    @PostMapping
     public void createCab(@RequestBody  final Cab cab){
         cabServiceImpl.createCab(cab);
+    }
+
+    @PutMapping
+    public void updateCab(@RequestBody final Cab cab){
+        cabServiceImpl.updateCab(cab);
     }
 }
