@@ -31,6 +31,11 @@ public class CabServiceImpl implements CabService {
     }
 
     @Override
+    public List<Cab> findAllCabs(final Date startDate, final Date endDate) {
+        return cabRepository.findAllByDuration(startDate, endDate);
+    }
+
+    @Override
     public Cab findById(final long id){
         return cabRepository.findById(id).get();
     }
@@ -57,8 +62,4 @@ public class CabServiceImpl implements CabService {
         cabRepository.deleteById(cabId);
     }
 
-    @Override
-    public List<Cab> findAllCabs(final Date startDate, final Date endDate) {
-        return cabRepository.findAllByDuration(startDate, endDate);
-    }
 }

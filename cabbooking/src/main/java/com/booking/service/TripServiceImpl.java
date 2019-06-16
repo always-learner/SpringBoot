@@ -36,7 +36,6 @@ public class TripServiceImpl implements TripService {
         if (totalRunningKms > 0){
             return booking.getCab().getCabType().getBasicFare() * totalRunningKms;
         }else {
-            //TODO implement custom exception handler
             throw new Exception("Invalid reading found");
         }
     }
